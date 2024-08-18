@@ -20,8 +20,5 @@ indent_size = 2
 [{*.yaml,*.yml,.analysis_options}]
 indent_size = 2
 
-[*.py]
-indent_size = 2
-
 [{*ts,*.tsx,*.d.ts,*.js,*.jsx,*.mjs}]
 indent_size = 2
