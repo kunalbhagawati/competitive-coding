@@ -1,0 +1,11 @@
+{
+  "name": "competitive-coding",
+  "version": "1.0.0",
+  "description": "Competitive coding",
+  "main": "typescript/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "knl.bhg@gmail.com",
+  "license": "ISC"
+}
