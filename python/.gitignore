@@ -1,1 +1,4 @@
 python.iml
+
+# All `artifacts` directories and files inside them
+artifacts/
