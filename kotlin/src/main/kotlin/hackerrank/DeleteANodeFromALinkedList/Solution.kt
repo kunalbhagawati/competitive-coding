@@ -1,3 +1,6 @@
+/**
+ * https://www.hackerrank.com/challenges/delete-a-node-from-a-linked-list/problem?isFullScreen=true
+ */
 package me.kunalbhagawati.hackerrank.DeleteANodeFromALinkedList
 
 import java.util.Scanner
