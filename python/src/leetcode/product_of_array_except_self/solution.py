@@ -2,6 +2,7 @@
 # https://leetcode.com/problems/product-of-array-except-self/description/
 
 from functools import reduce
+from inputs import inp
 
 
 class Solution:
@@ -19,7 +20,5 @@ class Solution:
 
 
 if __name__ == "__main__":
-    from .inputs import input
-
-    res = Solution().productExceptSelf(nums=input)
+    res = Solution().productExceptSelf(nums=inp)
     print(res)
