@@ -21,13 +21,24 @@
  * ))) and )())()) both result in floor -3.
  *
  * To what floor do the instructions take Santa?
+ *
+ * ---
+ *
+ * --- Part Two ---
+ * Now, given the same instructions, find the position of the first character that causes him to enter the basement (floor -1). The first character in the instructions has position 1, the second character has position 2, and so on.
+ *
+ * For example:
+ *
+ * ) causes him to enter the basement at character position 1.
+ * ()()) causes him to enter the basement at character position 5.
+ * What is the position of the character that causes Santa to first enter the basement?
  */
 package me.kunalbhagawati.adventOfCode.day1
 
 import java.io.File
 
 
-fun compute(input: String): Int =
+fun solve_pt_1(input: String): Int =
     input.fold(0) { acc: Int, c: Char ->
         c.toString().let {
             if (it == "(") {
@@ -38,13 +49,32 @@ fun compute(input: String): Int =
         }
     }
 
+fun solve_pt_2(input: String): Int? {
+    var flr = 0
+
+    input.forEachIndexed { idx: Int, c: Char ->
+        c.toString().let {
+            if (it == "(") {
+                flr += 1
+            } else if (it == ")") {
+                flr -= 1
+            } else throw IllegalArgumentException("Character must be `(` or `)`. Found $it")
+        }
+
+        if (flr == -1) return idx + 1
+    }
+
+    return null
+}
+
 
 fun main(args: Array<String>) {
     val fileName = "src/main/resources/adventOfCode/day1/input.txt"
 
     val reader = File(fileName).absoluteFile.bufferedReader()
 
-    val input = reader.use { it.readText() }
+    val input = reader.use { it.readText().trim() }
 
-    compute(input.trim()).also { println(it) }
+    solve_pt_1(input).also(::println)
+    solve_pt_2(input).also(::println)
 }
