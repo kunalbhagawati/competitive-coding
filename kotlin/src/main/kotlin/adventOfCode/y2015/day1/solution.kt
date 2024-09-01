@@ -33,9 +33,11 @@
  * ()()) causes him to enter the basement at character position 5.
  * What is the position of the character that causes Santa to first enter the basement?
  */
-package me.kunalbhagawati.adventOfCode.day1
+package me.kunalbhagawati.adventOfCode.y2015.day1
 
 import java.io.File
+
+const val INPUT_FILENAME = "src/main/resources/adventOfCode/y2015/day1/input.txt"
 
 
 fun solve_pt_1(input: String): Int =
@@ -69,9 +71,7 @@ fun solve_pt_2(input: String): Int? {
 
 
 fun main(args: Array<String>) {
-    val fileName = "src/main/resources/adventOfCode/day1/input.txt"
-
-    val reader = File(fileName).absoluteFile.bufferedReader()
+    val reader = File(INPUT_FILENAME).absoluteFile.bufferedReader()
 
     val input = reader.use { it.readText().trim() }
 
