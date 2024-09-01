@@ -1,11 +1,13 @@
 /**
- * https://www.hackerrank.com/challenges/delete-a-node-from-a-linked-list/problem?isFullScreen=true
+ * https://www.hackerrank.com/challenges/insert-a-node-at-a-specific-position-in-a-linked-list/problem
  */
-package me.kunalbhagawati.hackerrank.DeleteANodeFromALinkedList
+package me.kunalbhagawati.hackerrank.InsertANodeAtASpecificPositionInALinkedList
 
 import java.util.Scanner
 
-class SinglyLinkedListNode(nodeData: Int) {
+class SinglyLinkedListNode(
+    nodeData: Int,
+) {
     public var data: Int
     public var next: SinglyLinkedListNode?
 
@@ -35,11 +37,13 @@ class SinglyLinkedList {
 
         tail = node
     }
-
 }
 
-fun printSinglyLinkedList(head: SinglyLinkedListNode?, sep: String) {
-    var node = head;
+fun printSinglyLinkedList(
+    head: SinglyLinkedListNode?,
+    sep: String,
+) {
+    var node = head
 
     while (node != null) {
         print(node?.data)
@@ -52,57 +56,53 @@ fun printSinglyLinkedList(head: SinglyLinkedListNode?, sep: String) {
 }
 
 /*
- * Complete the 'deleteNode' function below.
+ * Complete the 'insertNodeAtPosition' function below.
  *
  * The function is expected to return an INTEGER_SINGLY_LINKED_LIST.
  * The function accepts following parameters:
  *  1. INTEGER_SINGLY_LINKED_LIST llist
- *  2. INTEGER position
+ *  2. INTEGER data
+ *  3. INTEGER position
  */
 
-/*
- * For your reference:
- *
- * SinglyLinkedListNode {
- *     data: Int
- *     next: SinglyLinkedListNode
- * }
- *
- */
 
-fun deleteNode(llist: SinglyLinkedListNode?, position: Int): SinglyLinkedListNode? {
-    require(llist != null) {"Condition failed, Head node cannot be null"}
-    
-    var currentNode: SinglyLinkedListNode? = llist
-    var headNode = llist
+fun insertNodeAtPosition(
+    llist: SinglyLinkedListNode?,
+    data: Int,
+    position: Int,
+): SinglyLinkedListNode? {
+    require(llist != null) { "Head node cannot be null" }
+
     var currentPos = 0
+    var headNode: SinglyLinkedListNode = llist
+    var currentNode: SinglyLinkedListNode? = llist
     var parentNode: SinglyLinkedListNode? = null
-    
+
     while (currentPos <= position) {
-        if (currentNode == null) // reached ending of list.
-            break
-        
         if (position == currentPos) {
-            when(parentNode) {
-                null -> headNode = currentNode.next
-                else -> parentNode.next = currentNode.next
+            val newNode = SinglyLinkedListNode(data)
+            newNode.next = currentNode
+
+            when (parentNode) {
+                null -> headNode = newNode
+                else -> parentNode.next = newNode
             }
             break
-        } 
-        
-        // Iterate over the list.
+        }
+
         parentNode = currentNode
-        currentNode = currentNode.next
+        currentNode = currentNode!!.next
         currentPos += 1
+
     }
-    
+
     return headNode
 }
 
 fun main(args: Array<String>) {
     val scan = Scanner(System.`in`)
 
-    val llistCount = scan.also { print("Len List: ") }.nextLine().trim().toInt()
+    val llistCount = scan.also { print("List len: ") }.nextLine().trim().toInt()
     val llist = SinglyLinkedList()
 
     for (i in 0 until llistCount) {
@@ -110,9 +110,11 @@ fun main(args: Array<String>) {
         llist.insertNode(llist_item)
     }
 
+    val data = scan.also { print("Data: ") }.nextLine().trim().toInt()
+
     val position = scan.also { print("Position: ") }.nextLine().trim().toInt()
 
-    val llist1 = deleteNode(llist?.head, position)
+    val llist_head = insertNodeAtPosition(llist?.head, data, position)
 
-    printSinglyLinkedList(llist1, " ")
+    printSinglyLinkedList(llist_head, " ")
 }
