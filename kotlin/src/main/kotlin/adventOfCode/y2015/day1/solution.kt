@@ -39,19 +39,19 @@ import java.io.File
 
 const val INPUT_FILENAME = "src/main/resources/adventOfCode/y2015/day1/input.txt"
 
-
-fun solve_pt_1(input: String): Int =
+fun solvePt1(input: String): Int =
     input.fold(0) { acc: Int, c: Char ->
         c.toString().let {
             if (it == "(") {
                 acc + 1
             } else if (it == ")") {
                 acc - 1
-            } else throw IllegalArgumentException("Character must be `(` or `)`. Found $it")
+            } else
+                throw IllegalArgumentException("Character must be `(` or `)`. Found $it")
         }
     }
 
-fun solve_pt_2(input: String): Int? {
+fun solvePt2(input: String): Int? {
     var flr = 0
 
     input.forEachIndexed { idx: Int, c: Char ->
@@ -60,7 +60,9 @@ fun solve_pt_2(input: String): Int? {
                 flr += 1
             } else if (it == ")") {
                 flr -= 1
-            } else throw IllegalArgumentException("Character must be `(` or `)`. Found $it")
+            } else {
+                throw IllegalArgumentException("Character must be `(` or `)`. Found $it")
+            }
         }
 
         if (flr == -1) return idx + 1
@@ -69,12 +71,11 @@ fun solve_pt_2(input: String): Int? {
     return null
 }
 
-
 fun main(args: Array<String>) {
     val reader = File(INPUT_FILENAME).absoluteFile.bufferedReader()
 
     val input = reader.use { it.readText().trim() }
 
-    solve_pt_1(input).also(::println)
-    solve_pt_2(input).also(::println)
+    solvePt1(input).also(::println)
+    solvePt2(input).also(::println)
 }
