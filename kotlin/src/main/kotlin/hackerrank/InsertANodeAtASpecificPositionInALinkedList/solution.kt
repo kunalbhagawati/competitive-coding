@@ -1,7 +1,8 @@
 /**
  * https://www.hackerrank.com/challenges/insert-a-node-at-a-specific-position-in-a-linked-list/problem
  */
-package me.kunalbhagawati.hackerrank.InsertANodeAtASpecificPositionInALinkedList
+
+package me.kunalbhagawati.hackerrank.insertANodeAtASpecificPositionInALinkedList
 
 import java.util.Scanner
 
@@ -65,7 +66,6 @@ fun printSinglyLinkedList(
  *  3. INTEGER position
  */
 
-
 fun insertNodeAtPosition(
     llist: SinglyLinkedListNode?,
     data: Int,
@@ -93,7 +93,6 @@ fun insertNodeAtPosition(
         parentNode = currentNode
         currentNode = currentNode!!.next
         currentPos += 1
-
     }
 
     return headNode
@@ -102,17 +101,37 @@ fun insertNodeAtPosition(
 fun main(args: Array<String>) {
     val scan = Scanner(System.`in`)
 
-    val llistCount = scan.also { print("List len: ") }.nextLine().trim().toInt()
+    val llistCount =
+        scan
+            .also { print("List len: ") }
+            .nextLine()
+            .trim()
+            .toInt()
     val llist = SinglyLinkedList()
 
     for (i in 0 until llistCount) {
-        val llist_item = scan.also { print("Item ${i}: ") }.nextLine().trim().toInt()
+        val llist_item =
+            scan
+                .also { print("Item $i: ") }
+                .nextLine()
+                .trim()
+                .toInt()
         llist.insertNode(llist_item)
     }
 
-    val data = scan.also { print("Data: ") }.nextLine().trim().toInt()
+    val data =
+        scan
+            .also { print("Data: ") }
+            .nextLine()
+            .trim()
+            .toInt()
 
-    val position = scan.also { print("Position: ") }.nextLine().trim().toInt()
+    val position =
+        scan
+            .also { print("Position: ") }
+            .nextLine()
+            .trim()
+            .toInt()
 
     val llist_head = insertNodeAtPosition(llist?.head, data, position)
 
