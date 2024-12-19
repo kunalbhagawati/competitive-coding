@@ -46,9 +46,8 @@ fun solvePt1(input: String): Int =
                 acc + 1
             } else if (it == ")") {
                 acc - 1
-            } else {
+            } else
                 throw IllegalArgumentException("Character must be `(` or `)`. Found $it")
-            }
         }
     }
 

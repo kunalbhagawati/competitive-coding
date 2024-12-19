@@ -107,13 +107,13 @@ fun main(args: Array<String>) {
     val llist = SinglyLinkedList()
 
     for (i in 0 until llistCount) {
-        val llist_item =
+        val llistItem =
             scan
                 .also { print("Item $i: ") }
                 .nextLine()
                 .trim()
                 .toInt()
-        llist.insertNode(llist_item)
+        llist.insertNode(llistItem)
     }
 
     val data =
@@ -130,7 +130,7 @@ fun main(args: Array<String>) {
             .trim()
             .toInt()
 
-    val llist_head = insertNodeAtPosition(llist?.head, data, position)
+    val llistHead = insertNodeAtPosition(llist?.head, data, position)
 
-    printSinglyLinkedList(llist_head, " ")
+    printSinglyLinkedList(llistHead, " ")
 }

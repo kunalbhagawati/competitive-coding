@@ -40,10 +40,7 @@ class SinglyLinkedList {
     }
 }
 
-fun printSinglyLinkedList(
-    head: SinglyLinkedListNode?,
-    sep: String,
-) {
+fun printSinglyLinkedList(head: SinglyLinkedListNode?, sep: String) {
     var node = head
 
     while (node != null) {
@@ -75,10 +72,7 @@ fun printSinglyLinkedList(
  *
  */
 
-fun deleteNode(
-    llist: SinglyLinkedListNode?,
-    position: Int,
-): SinglyLinkedListNode? {
+fun deleteNode(llist: SinglyLinkedListNode?, position: Int): SinglyLinkedListNode? {
     require(llist != null) { "Condition failed, Head node cannot be null" }
 
     var currentNode: SinglyLinkedListNode? = llist
