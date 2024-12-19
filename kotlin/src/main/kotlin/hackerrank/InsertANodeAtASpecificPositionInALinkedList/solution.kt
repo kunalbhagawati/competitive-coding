@@ -40,10 +40,7 @@ class SinglyLinkedList {
     }
 }
 
-fun printSinglyLinkedList(
-    head: SinglyLinkedListNode?,
-    sep: String,
-) {
+fun printSinglyLinkedList(head: SinglyLinkedListNode?, sep: String) {
     var node = head
 
     while (node != null) {
