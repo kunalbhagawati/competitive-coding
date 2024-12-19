@@ -20,5 +20,11 @@ indent_size = 2
 [{*.yaml,*.yml,.analysis_options}]
 indent_size = 2
 
-[{*ts,*.tsx,*.d.ts,*.js,*.jsx,*.mjs}]
+[{*.ts,*.tsx,*.d.ts,*.js,*.jsx,*.mjs}]
 indent_size = 2
+
+[{*.kt,*.kts}]
+ktlint_standard_filename = disabled
+ktlint_standard_package-name = disabled
+ktlint_standard_no-consecutive-comments = disabled
+ktlint_standard_property-naming = disabled # Leetcode, Hackerrank, etc may not follow conventions.
