@@ -1,0 +1,1 @@
+inp = "Was it a car or a cat I saw?"
