@@ -12,7 +12,9 @@ class Solution:
                 heapq.heappushpop(_heap, num)
         return _heap[0]
 
+
 if __name__ == "__main__":
     from .inputs import inp
+
     r = Solution().findKthLargest(inp[0], inp[1])
     print(r)

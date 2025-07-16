@@ -8,10 +8,10 @@ class Solution:
         _len = len(nums)
         if _len < 3:
             return False
-    
+
         first = int("inf")
         second = int("inf")
-        
+
         for n in nums:
             if n <= first:
                 first = n
@@ -19,7 +19,7 @@ class Solution:
                 second = n
             else:
                 return True
-        
+
         return False
 
 

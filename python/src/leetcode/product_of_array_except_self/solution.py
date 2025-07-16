@@ -9,10 +9,10 @@ class Solution:
     def productExceptSelf(self, nums: list[int]) -> list[int]:
         len_arr = len(nums)
 
-        prefix_arr = reduce(lambda acc, x: acc + [(acc[-1] * x)], nums, [1])
+        prefix_arr = reduce(lambda acc, x: acc + [acc[-1] * x], nums, [1])
         del prefix_arr[-1]
 
-        suffix_arr = reduce(lambda acc, x: acc + [(acc[-1] * x)], nums[::-1], [1])
+        suffix_arr = reduce(lambda acc, x: acc + [acc[-1] * x], nums[::-1], [1])
         del suffix_arr[-1]
         suffix_arr = suffix_arr[::-1]
 
