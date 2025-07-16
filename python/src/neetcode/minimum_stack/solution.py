@@ -2,7 +2,6 @@
 # https://neetcode.io/problems/minimum-stack
 
 
-
 class MinStack:
 
     def __init__(self):
@@ -26,7 +25,7 @@ class MinStack:
 
     def getMin(self) -> int:
         return self._min_stack[-1]
-    
+
     def __repr__(self):
         return f"""
 STACK: {self._stack}

@@ -1,5 +1,5 @@
 def get_input(filename):
-    with open(filename, 'r') as f:
+    with open(filename, "r") as f:
         res = f.read()
         return res.strip().split(",")
 

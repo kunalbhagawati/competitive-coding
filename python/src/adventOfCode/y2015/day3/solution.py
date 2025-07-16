@@ -63,13 +63,25 @@ def solve_pt_2(input: str):
         pos_idx = idx % 2
 
         if c == "^":  # north
-            positions[pos_idx] = (positions[pos_idx][0], positions[pos_idx][1] + 1)  # increase y
+            positions[pos_idx] = (
+                positions[pos_idx][0],
+                positions[pos_idx][1] + 1,
+            )  # increase y
         elif c == "v":  # south
-            positions[pos_idx] = (positions[pos_idx][0], positions[pos_idx][1] - 1)  # decrease y
+            positions[pos_idx] = (
+                positions[pos_idx][0],
+                positions[pos_idx][1] - 1,
+            )  # decrease y
         elif c == ">":  # east
-            positions[pos_idx] = (positions[pos_idx][0] + 1, positions[pos_idx][1])  # increase x
+            positions[pos_idx] = (
+                positions[pos_idx][0] + 1,
+                positions[pos_idx][1],
+            )  # increase x
         elif c == "<":  # west
-            positions[pos_idx] = (positions[pos_idx][0] - 1, positions[pos_idx][1])  # decrease x
+            positions[pos_idx] = (
+                positions[pos_idx][0] - 1,
+                positions[pos_idx][1],
+            )  # decrease x
         else:
             raise RuntimeError(f"Illegal direction `{c}` at position `{idx}`.")
 

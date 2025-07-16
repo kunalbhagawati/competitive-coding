@@ -9,7 +9,7 @@ class Solution:
             return -1
 
         idx_mid = l // 2
-        left, mid, right = nums[:idx_mid], nums[idx_mid], nums[idx_mid + 1:]
+        left, mid, right = nums[:idx_mid], nums[idx_mid], nums[idx_mid + 1 :]
         if target == mid:
             return idx_mid
         elif target < mid:

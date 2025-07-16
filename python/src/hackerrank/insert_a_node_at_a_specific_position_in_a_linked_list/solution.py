@@ -8,13 +8,13 @@ from typing import Any, Optional
 
 
 class SinglyLinkedListNode:
-    next: Optional['SinglyLinkedListNode']
+    next: Optional["SinglyLinkedListNode"]
     data: Any
 
     def __init__(self, node_data: Any):
         self.data = node_data
         self.next = None
-        
+
     def __repr__(self):
         return f"<{self.data}>"
 
@@ -67,7 +67,10 @@ def print_singly_linked_list(node, sep, fptr):
 #
 #
 
-def insertNodeAtPosition(llist: SinglyLinkedListNode, data: Any, position: int) -> SinglyLinkedListNode:
+
+def insertNodeAtPosition(
+    llist: SinglyLinkedListNode, data: Any, position: int
+) -> SinglyLinkedListNode:
     current_pos = 0
     head_node = llist
     current_node = llist
@@ -75,7 +78,9 @@ def insertNodeAtPosition(llist: SinglyLinkedListNode, data: Any, position: int) 
 
     assert current_node, "Constraint failure, list empty"
 
-    while current_pos <= position:  # This assumes the constraint 0 <= position <= len(list) 
+    while (
+        current_pos <= position
+    ):  # This assumes the constraint 0 <= position <= len(list)
         # Otherwise, replace the node.
         if position == current_pos:
             new_node = SinglyLinkedListNode(data)
@@ -95,16 +100,15 @@ def insertNodeAtPosition(llist: SinglyLinkedListNode, data: Any, position: int) 
     return head_node
 
 
-if __name__ == '__main__':
-    output_path = os.environ.get('OUTPUT_PATH', None)
+if __name__ == "__main__":
+    output_path = os.environ.get("OUTPUT_PATH", None)
     # if output_path then write to file else write to stdout
     if output_path:
-        f = Path(os.environ['OUTPUT_PATH'])
+        f = Path(os.environ["OUTPUT_PATH"])
         f.mkdir(parents=True, exist_ok=True)
-        fptr = open(f / "soln.txt", 'w+')
+        fptr = open(f / "soln.txt", "w+")
     else:
         fptr = stdout
-
 
     llist_count = int(input("List Count: "))
 
@@ -121,9 +125,9 @@ if __name__ == '__main__':
     llist_head = insertNodeAtPosition(llist.head, data, position)
 
     # Actual output ---
-    fptr.write('\n')
-    print_singly_linked_list(llist_head, ' ', fptr)
-    fptr.write('\n')
+    fptr.write("\n")
+    print_singly_linked_list(llist_head, " ", fptr)
+    fptr.write("\n")
     # ---
 
     fptr.close()
